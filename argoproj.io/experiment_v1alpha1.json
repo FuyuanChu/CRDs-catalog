@@ -186,7 +186,13 @@
                 "additionalProperties": false
               },
               "service": {
-                "type": "object"
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "type": "object",
+                "additionalProperties": false
               },
               "template": {
                 "properties": {
@@ -2769,6 +2775,9 @@
                       "hostPID": {
                         "type": "boolean"
                       },
+                      "hostUsers": {
+                        "type": "boolean"
+                      },
                       "hostname": {
                         "type": "string"
                       },
@@ -3995,9 +4004,26 @@
                               "type": "object",
                               "additionalProperties": false
                             },
+                            "matchLabelKeys": {
+                              "items": {
+                                "type": "string"
+                              },
+                              "type": "array",
+                              "x-kubernetes-list-type": "atomic"
+                            },
                             "maxSkew": {
                               "format": "int32",
                               "type": "integer"
+                            },
+                            "minDomains": {
+                              "format": "int32",
+                              "type": "integer"
+                            },
+                            "nodeAffinityPolicy": {
+                              "type": "string"
+                            },
+                            "nodeTaintsPolicy": {
+                              "type": "string"
                             },
                             "topologyKey": {
                               "type": "string"
